@@ -70,13 +70,32 @@
         </div>
       </div>
 
-      <line-chart
+ 
+      <area-chart
         class="my-10"
         :colors="['orange']"
         :min="min"
         :max="max"
         :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(2)])"
       />
+
+       <bar-chart
+        class="my-15"
+        :colors="['blue']"
+        :min="min"
+        :max="max"
+        :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(1)])"
+      />
+
+    <!--  <pie-chart
+        class="my-15"
+        :colors="['purple']"
+        :min="min"
+        :max="max"
+        :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(2)])"
+      />-->
+      <pie-chart :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(2)])" :min="min"
+        :max="max"></pie-chart>
 
       <h3 class="text-xl my-10">Mejores Ofertas de Cambio</h3>
       <table>
